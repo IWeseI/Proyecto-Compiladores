@@ -16,7 +16,7 @@ id          {letra}+
 
 %%
 
-"entero"    { yylval.tipo_val = new std::string(yytext); return ENTERO_Tipo; }
+"entero"    { yylval.tipo_val = new std::string(yytext); return ENTERO_tipo; }
 "sin_tipo"  { yylval.tipo_val = new std::string(yytext); return SIN_tipo; }
 
 "sino"      { return SINO; }
@@ -44,7 +44,7 @@ id          {letra}+
 ">="    { yylval.relop_val = new std::string(yytext); return GE; }
 "=="    { yylval.relop_val = new std::string(yytext); return E; }
 "!="    { yylval.relop_val = new std::string(yytext); return D; }
-"<"     { yylval.relop_val = new std::string(yytext); return LE; }
+"<"     { yylval.relop_val = new std::string(yytext); return L; }
 ">"     { yylval.relop_val = new std::string(yytext); return G; }
 
 "="    { return ASSIGN; }

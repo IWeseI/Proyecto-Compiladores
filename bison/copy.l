@@ -18,7 +18,7 @@ id          {letra}+
 
 %%
 
-"entero"    { printf("ENTERO_Tipo "); }
+"entero"    { printf("ENTERO_tipo "); }
 "sin_tipo"  { printf("SIN_tipo "); }
 
 "sino"      { printf("SINO "); }
