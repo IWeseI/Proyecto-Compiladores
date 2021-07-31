@@ -5,33 +5,70 @@
 #include "heading.h"
 int yyerror(char *s);
 extern "C" int yylex();
+
+struct type_val{
+  int type;
+  int val;
+};
+
+map<string, type_val> tabla;
+
+void insertar_simbolo(string id, type_val val);
+bool buscar_simbolo(string id);
+void actualizar_simbolo(string, type_val new_val);
+
 %}
 
 %union{
   int		int_val;
-  string* id_val
+  string* id_val;
   string*	op_val;
   string* relop_val;
   string* tipo_val;
 }
 
-%start	input 
+%start	programa
 
 %token	<int_val>	INTEGER_LITERAL
 %type	<int_val>	exp
-%left	PLUS
+
+%left	ENTERO_tipo
+%left	SIN_tipo
+%left	SINO
+%left	SI
+%left	MIENTRAS
+%left	RETORNO
+%left	MAIN
+
+%left	NUM
+%left	ID
+
+%left	ADD
+%left	SUB
 %left	MULT
+%left	DIV
+
+%left PAR_A
+%left	PAR_C
+%left	LLAVE_A
+%left	LLAVE_C
+%left	COR_A
+%left	COR_C
+
+%left	LE
+%left	GE
+%left	E
+%left	D
+%left	L
+%left	G
+
+%left	ASSIGN
+
+%left	END
+%left	COMMA
+
 
 %%
-
-input:		/* empty */
-		| exp	{ cout << "Result: " << $1 << endl; }
-		;
-
-exp:		INTEGER_LITERAL	{ $$ = $1; }
-		| exp PLUS exp	{ $$ = $1 + $3; }
-		| exp MULT exp	{ $$ = $1 * $3; }
-		;
 
 programa: lista_declaracion;
 
@@ -107,3 +144,12 @@ int yyerror(char *s)
 {
   return yyerror(string(s));
 }
+
+void insertar_simbolo(string id, type_val val){
+  tabla[id]=val;
+}
+
+bool buscar_simbolo(string id){
+  return tabla.find(id)!=tabla.end();
+}
+

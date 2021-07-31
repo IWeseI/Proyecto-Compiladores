@@ -4,7 +4,7 @@
 %{
 #include "heading.h"
 #include "y.tab.h" 
-//#include "tok.h"
+#include "tok.h"
 extern "C" int yylex();
 int yyerror(char *s);
 %}
