@@ -1,6 +1,0 @@
-entero main ()
-{
-    entero x;
-    x = 30;
-    retorno 0;
-}

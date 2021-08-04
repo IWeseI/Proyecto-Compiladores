@@ -1,0 +1,14 @@
+entero a;
+entero i;
+entero func (entero x, entero d)
+{
+    entero i;
+    d = 4;
+    i = 1;
+    a = i;
+}
+
+entero main (sin_tipo)
+{
+    func(a,i);
+}
