@@ -1,7 +1,5 @@
 # Proyecto-Compiladores
 
-:(
-
 
 ## Authors
 
